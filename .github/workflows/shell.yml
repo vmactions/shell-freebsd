@@ -1,0 +1,24 @@
+
+name: shell
+
+on: [push, workflow_dispatch]
+
+jobs:
+  runshell:
+    runs-on: macos-latest
+    name: Start a freebsd shell
+    steps:
+    - name: Starting a freebsd VM, please wait. It may take 5 minutes
+      id: shell
+      uses: vmactions/freebsd-vm@v0.0.9
+      with:
+        run: |
+          pwd
+          ls -lah
+          whoami
+          env
+          freebsd-version
+    - name: Sleep
+      run: sleep 5
+    - uses: neilpang/debugger-action@master
+
