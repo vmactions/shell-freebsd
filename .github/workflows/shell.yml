@@ -5,7 +5,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   runshell:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     name: Start a freebsd shell
     steps:
     - name: Starting a freebsd VM, please wait. It may take 5 minutes
