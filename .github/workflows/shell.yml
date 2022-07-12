@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Starting a freebsd VM, please wait. It may take 5 minutes
       id: shell
-      uses: vmactions/freebsd-vm@v0.1.5
+      uses: vmactions/freebsd-vm@mail
       with:
         run: |
           pwd
