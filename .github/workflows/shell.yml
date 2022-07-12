@@ -8,12 +8,21 @@ jobs:
     runs-on: macos-12
     name: Start a freebsd shell
     steps:
+    - uses: vmactions/cf-tunnel@v0.0.3
+      id: tunnel
+      with:
+        protocol: http
+        port: 8000
+    - name: Set envs
+      run: echo "TestingDomain=${{steps.tunnel.outputs.server}}" >> $GITHUB_ENV
     - name: Starting a freebsd VM, please wait. It may take 5 minutes
       id: shell
       uses: vmactions/freebsd-vm@main
       with:
         nat: |
           "8000": "80"
+        envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server'
+        prepare: pkg install -y socat curl
         run: |
           pwd
           ls -lah
