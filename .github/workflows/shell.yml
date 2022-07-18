@@ -29,6 +29,7 @@ jobs:
           whoami
           env
           freebsd-version
+          (ls -lah)
     - name: Sleep
       run: sleep 5
     - uses: neilpang/debugger-action@master
