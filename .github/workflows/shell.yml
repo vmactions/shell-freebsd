@@ -31,6 +31,6 @@ jobs:
           freebsd-version
           (ls -lah)
     - name: Sleep
-      run: sleep 5
+      run: for i in $(seq 1 10) ; do echo $i; sleep 1; done
     - uses: neilpang/debugger-action@master
 
