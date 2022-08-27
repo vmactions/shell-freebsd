@@ -22,7 +22,7 @@ jobs:
         nat: |
           "8000": "80"
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server INPUT_*'
-        sync: rsync
+        sync: sshfs
         prepare: pkg install -y socat curl
         run: |
           pwd
