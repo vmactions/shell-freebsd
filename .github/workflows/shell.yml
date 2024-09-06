@@ -5,7 +5,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   runshell:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: Start a freebsd shell
     steps:
     - uses: vmactions/cf-tunnel@v0
