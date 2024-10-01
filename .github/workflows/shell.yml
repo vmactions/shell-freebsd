@@ -33,10 +33,14 @@ jobs:
           (ls -lah)
     - name: step 1
       run: ssh freebsd <<EOF
+          cd $GITHUB_WORKSPACE;
+          pwd
           echo "this is step 1"
         EOF
     - name: step 2
       run: ssh freebsd <<EOF
+          cd $GITHUB_WORKSPACE;
+          pwd
           echo "this is step 2"
         EOF
     - name: Sleep
