@@ -31,6 +31,14 @@ jobs:
           env
           freebsd-version
           (ls -lah)
+    - name: step 1
+      run: ssh freebsd <<EOF
+          echo "this is step 1"
+        EOF
+    - name: step 2
+      run: ssh freebsd <<EOF
+          echo "this is step 2"
+        EOF
     - name: Sleep
       run: for i in $(seq 1 10) ; do echo $i; sleep 1; done
     - uses: neilpang/debugger-action@master
