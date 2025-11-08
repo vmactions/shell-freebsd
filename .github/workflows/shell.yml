@@ -5,7 +5,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   runshell:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04-arm
     name: Start a freebsd shell
     steps:
     - uses: vmactions/cf-tunnel@v0
@@ -22,7 +22,8 @@ jobs:
         nat: |
           "8000": "80"
         envs: 'TestingDomain TEST_PREFERRED_CHAIN TEST_ACME_Server INPUT_*'
-        sync: nfs
+        sync: no
+        arch: aarch64
         prepare: pkg install -y socat curl
         run: |
           pwd
